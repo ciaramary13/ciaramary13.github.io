@@ -1,8 +1,8 @@
 :root {
   --accent-pink: #f7cfe0;
-  --accent-green: #c9f2d0;
+  --accent-green: #c0ffd5;
   --text-dark: #333;
-  --bg-light: #fdfdfd;
+  --bg-light: #	f3fbff;
 }
 
 body.homepage {
@@ -125,14 +125,14 @@ body.blog {
 .blog h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: var(--accent-pink);
+  color: var(--text-dark);
 }
 
 .resume h2,
 .blog h2 {
   font-size: 1.5rem;
   margin-top: 2rem;
-  color: var(--accent-green);
+  color: var(--text-dark);
 }
 
 .resume p,
@@ -142,7 +142,7 @@ body.blog {
 
 section {
   background-color: #fefefe;
-  border-left: 4px solid var(--accent-green);
+  border-left: 4px solid var(#6495ed);
   padding: 1rem;
   margin-bottom: 1.5rem;
   border-radius: 8px;
