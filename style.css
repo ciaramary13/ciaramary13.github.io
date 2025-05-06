@@ -1,3 +1,13 @@
+/* ====== Reset & Base ====== */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  background-color: #fdfdfd;
+}
+
 /* ====== Base Styles ====== */
 body {
   font-family: 'Inter', sans-serif;
