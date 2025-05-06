@@ -141,7 +141,12 @@ footer {
   color: var(--text-dark);
 }
 
-.resume h2,
+.resume h2 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 .blog h2 {
   font-size: 1.5rem;
   margin-top: 2rem;
@@ -153,13 +158,22 @@ footer {
   margin-bottom: 1rem;
 }
 
-.resume section,
-.blog article {
-  background-color: #fefefe;
+.resume section {
   border-left: 4px solid #6495ed;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
+  background-color: #fefefe;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
   border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.blog article {
+  background: #fdfdfd;
+  border: 1px solid #eee;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
 }
 
 .resume section ul,
