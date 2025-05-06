@@ -5,7 +5,7 @@ html, body {
   height: 100%;
   font-family: 'Inter', sans-serif;
   color: #333;
-  background-color: #fdfdfd;
+  background-color: #ffd2e3;
 }
 
 /* ====== Base Styles ====== */
@@ -15,7 +15,7 @@ body {
   margin: 0;
   padding: 0;
   color: #333;
-  background-color: #fdfdfd;
+  background-color: #ffd2e3;
 }
 
 a {
@@ -76,7 +76,7 @@ body.homepage::after {
 }
 
 .card {
-  background: white;
+  background: #e2ffd2;
   padding: 3rem;
   border-radius: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
