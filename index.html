@@ -7,42 +7,37 @@
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   </head>
-<body class="homepage">
-  <div class="background-shapes">
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-    <div class="shape shape-3"></div>
-  </div>
+  <body class="homepage">
+    <div class="background-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
 
-  <div class="container">
-    <h1>Hi, I'm <span class="highlight">Ciara</span> <span class="wave">👋</span></h1>
-    <p>Welcome to my personal site!</p>
-    <nav>
-      <ul>
-        <li><a href="resume.html">My Resume</a></li>
-        <li><a href="blog.html">Blog</a></li>
-      </ul>
-    </nav>
-  </div>
-</body>
+    <div class="container">
+      <h1 class="fade-in">Hi, I'm <span class="highlight">Ciara</span> <span class="wave">👋</span></h1>
+      <p class="fade-in">Welcome to my personal site!</p>
+      <nav class="fade-in">
+        <ul>
+          <li><a href="resume.html">My Resume</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const elements = document.querySelectorAll('h1, p, nav');
-    elements.forEach((el, index) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)'; // Initial position
-
-      setTimeout(() => {
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      }, 300 + (index * 150));
-    });
-  });
-</script>
-
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const elements = document.querySelectorAll('.fade-in');
+        elements.forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, 300 + index * 150);
+        });
+      });
+    </script>
+  </body>
 </html>
+
 
 
 
