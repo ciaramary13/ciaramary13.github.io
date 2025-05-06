@@ -3,6 +3,7 @@
   --accent-green: #c0ffd5;
   --text-dark: #333;
   --bg-light: #f3fbff;
+  --link-blue: #0077cc;
 }
 
 body.homepage {
@@ -121,6 +122,18 @@ body.blog {
   line-height: 1.6;
 }
 
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
 .resume h1,
 .blog h1 {
   font-size: 2.5rem;
@@ -140,13 +153,48 @@ body.blog {
   margin-bottom: 1rem;
 }
 
-section {
+.resume section,
+.blog article {
   background-color: #fefefe;
-  border-left: 4px solid var(#6495ed);
+  border-left: 4px solid #6495ed;
   padding: 1rem;
   margin-bottom: 1.5rem;
   border-radius: 8px;
 }
+
+.resume section ul,
+.blog ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+
+.resume section li,
+.blog li {
+  margin-bottom: 0.5rem;
+}
+
+.resume a,
+.blog a {
+  color: var(--link-blue);
+  text-decoration: none;
+}
+
+.resume a:hover,
+.blog a:hover {
+  text-decoration: underline;
+}
+
+.blog article {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.blog p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
 
 
 
