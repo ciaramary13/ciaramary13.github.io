@@ -7,26 +7,32 @@
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   </head>
-  <body class="homepage">
+<body class="homepage">
   <div class="background-shapes">
     <div class="shape shape-1"></div>
     <div class="shape shape-2"></div>
     <div class="shape shape-3"></div>
-    <h1>Hi, I'm <span class="highlight">Ciara</span> <span class="wave">👋</span></h1>
-        <p>Welcome to my personal site!</p>
-        <nav>
-          <ul>
-            <li><a href="resume.html">My Resume</a></li>
-            <li><a href="blog.html">Blog</a></li>
-          </ul>
-        </nav>
   </div>
-  </body>
-  <script>
+
+  <div class="container">
+    <h1>Hi, I'm <span class="highlight">Ciara</span> <span class="wave">👋</span></h1>
+    <p>Welcome to my personal site!</p>
+    <nav>
+      <ul>
+        <li><a href="resume.html">My Resume</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</body>
+
+<script>
   document.addEventListener('DOMContentLoaded', function() {
     const elements = document.querySelectorAll('h1, p, nav');
     elements.forEach((el, index) => {
       el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)'; // Initial position
+
       setTimeout(() => {
         el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         el.style.opacity = '1';
@@ -35,6 +41,7 @@
     });
   });
 </script>
+
 </html>
 
 
