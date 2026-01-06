@@ -1,42 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ciara Wacker</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body class="homepage">
-    <div class="background-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ciara Wacker</title>
 
-    <div class="container">
-      <h1 class="fade-in">Hi, I'm Ciara👋🏻</h1>
-      <p class="fade-in">Welcome to my personal site!</p>
-      <nav class="fade-in">
-        <ul>
-          <li><a href="resume.html">My Resume</a></li>
-          <li><a href="blog.html">Blog</a></li>
-        </ul>
+  <!-- If you already have style.css, keep this -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Minimal styling so it looks good even if style.css is basic -->
+  <style>
+    :root { color-scheme: light; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 28px 18px 64px; }
+    header { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    h1 { margin: 0; font-size: 2rem; letter-spacing: -0.02em; }
+    nav a {
+      margin-right: 14px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:last-child { margin-right: 0; }
+    .sub { margin: 8px 0 0; opacity: 0.85; max-width: 72ch; }
+    .card {
+      margin-top: 22px;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (min-width: 760px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+    .item h3 { margin: 0 0 6px; font-size: 1.05rem; }
+    .item p { margin: 0; opacity: 0.9; }
+    .item a { font-weight: 600; text-decoration: none; }
+    .pill {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.15);
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+    footer { margin-top: 26px; opacity: 0.7; font-size: 0.95rem; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Ciara Wacker</h1>
+        <p class="sub">
+          Research & quantitative projects. Asset pricing, behavioral finance, and data-driven work.
+        </p>
+      </div>
+
+      <nav>
+        <a href="projects.html">Projects</a>
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+        <!-- Optional: keep a blog link if you use blog.html -->
+        <a href="blog.html">Writing</a>
+        <!-- Optional: add GitHub link -->
+        <a href="https://github.com/ciaramary13" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
-    </div>
+    </header>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const elements = document.querySelectorAll('.fade-in');
-        elements.forEach((el, index) => {
-          setTimeout(() => {
-            el.classList.add('visible');
-          }, 300 + index * 150);
-        });
-      });
-    </script>
-  </body>
+    <section class="card">
+      <h2 style="margin:0 0 10px;">Featured</h2>
+
+      <div class="grid">
+        <div class="item">
+          <h3>Working Paper (SSRN)</h3>
+          <p>
+            <strong>When Beliefs Become Entrenched: Narrative Dominance and Mispricing in Equity Markets</strong><br />
+            Working Paper, January 2026.
+          </p>
+          <a class="pill" href="projects.html">View project page →</a>
+          <!-- You will put the SSRN link on projects.html (cleaner). -->
+        </div>
+
+        <div class="item">
+          <h3>Monte Carlo Portfolio Project</h3>
+          <p>
+            Portfolio simulation & efficient frontier exploration.
+          </p>
+          <a class="pill" href="project1.html">Read write-up →</a>
+        </div>
+      </div>
+
+      <div style="margin-top: 14px;">
+        <a class="pill" href="projects.html">All projects →</a>
+        <a class="pill" href="resume.pdf" target="_blank" rel="noopener noreferrer">Download resume →</a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Ciara Wacker
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
+
+
 
 
 
