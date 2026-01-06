@@ -5,104 +5,275 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ciara Wacker</title>
 
-  <!-- If you already have style.css, keep this -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Keep if you want; this page is self-styled, so style.css isn't required -->
+  <!-- <link rel="stylesheet" href="style.css" /> -->
 
-  <!-- Minimal styling so it looks good even if style.css is basic -->
   <style>
-    :root { color-scheme: light; }
-    body {
+    :root{
+      --bg: #0b0b14;
+      --card: rgba(255,255,255,0.08);
+      --cardBorder: rgba(255,255,255,0.14);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+
+      --pink: #ff4fd8;
+      --blue: #4fd6ff;
+      --purple: #8a5cff;
+      --shadow: 0 18px 60px rgba(0,0,0,0.35);
+      --radius: 22px;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+    body{
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.5;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 20% 20%, rgba(255,79,216,0.25), transparent 60%),
+                  radial-gradient(1000px 600px at 80% 30%, rgba(79,214,255,0.25), transparent 60%),
+                  radial-gradient(900px 600px at 60% 90%, rgba(138,92,255,0.18), transparent 60%),
+                  var(--bg);
+      overflow-x: hidden;
     }
-    .wrap { max-width: 880px; margin: 0 auto; padding: 28px 18px 64px; }
-    header { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
-    h1 { margin: 0; font-size: 2rem; letter-spacing: -0.02em; }
-    nav a {
-      margin-right: 14px;
-      text-decoration: none;
-      font-weight: 600;
+
+    /* Soft animated glow layer */
+    .glow{
+      position: fixed;
+      inset: -20%;
+      background:
+        radial-gradient(500px 500px at 20% 30%, rgba(255,79,216,0.22), transparent 60%),
+        radial-gradient(520px 520px at 75% 25%, rgba(79,214,255,0.22), transparent 60%),
+        radial-gradient(520px 520px at 60% 80%, rgba(138,92,255,0.16), transparent 60%);
+      filter: blur(30px);
+      animation: drift 10s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 0;
     }
-    nav a:last-child { margin-right: 0; }
-    .sub { margin: 8px 0 0; opacity: 0.85; max-width: 72ch; }
-    .card {
-      margin-top: 22px;
-      border: 1px solid rgba(0,0,0,0.12);
-      border-radius: 14px;
-      padding: 18px;
+
+    @keyframes drift{
+      0%   { transform: translate3d(-1%, -1%, 0) scale(1.02); opacity: 0.85; }
+      50%  { transform: translate3d(1.5%, 0.5%, 0) scale(1.04); opacity: 0.95; }
+      100% { transform: translate3d(0.5%, 1.5%, 0) scale(1.03); opacity: 0.9; }
     }
-    .grid {
+
+    .wrap{
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 80px;
+      min-height: 100%;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 14px;
+      place-items: center;
     }
-    @media (min-width: 760px) {
-      .grid { grid-template-columns: 1fr 1fr; }
+
+    .panel{
+      width: 100%;
+      max-width: 860px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+      border: 1px solid var(--cardBorder);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 34px 26px;
+      backdrop-filter: blur(10px);
+      transform: translateY(6px);
+      animation: rise 700ms ease-out both;
     }
-    .item h3 { margin: 0 0 6px; font-size: 1.05rem; }
-    .item p { margin: 0; opacity: 0.9; }
-    .item a { font-weight: 600; text-decoration: none; }
-    .pill {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.15);
+
+    @keyframes rise{
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .name{
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      letter-spacing: -0.02em;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .mini-nav{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .mini-nav a{
+      color: var(--muted);
       text-decoration: none;
-      font-weight: 600;
-      margin-right: 8px;
+      font-weight: 650;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.10);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
     }
-    footer { margin-top: 26px; opacity: 0.7; font-size: 0.95rem; }
+    .mini-nav a:hover{
+      transform: translateY(-1px);
+      color: var(--text);
+      border-color: rgba(255,255,255,0.25);
+      background: rgba(0,0,0,0.16);
+    }
+
+    .tagline{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 70ch;
+    }
+
+    .hero{
+      margin-top: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .lead{
+      margin: 0;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.86);
+      max-width: 75ch;
+    }
+
+    .cta-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 750;
+      letter-spacing: 0.01em;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.16);
+      color: var(--text);
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
+      will-change: transform;
+    }
+
+    .btn:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.30);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+      background: rgba(0,0,0,0.22);
+    }
+
+    .btn-primary{
+      border: none;
+      background: linear-gradient(90deg, rgba(255,79,216,0.95), rgba(79,214,255,0.95));
+      color: #070710;
+    }
+    .btn-primary:hover{
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 18px 55px rgba(255,79,216,0.18), 0 18px 55px rgba(79,214,255,0.14);
+    }
+
+    .icon{
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+    }
+
+    /* Subtle “floating” accent line */
+    .accent{
+      margin-top: 22px;
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,79,216,0.7), rgba(79,214,255,0.7), transparent);
+      opacity: 0.7;
+      animation: shimmer 2.8s ease-in-out infinite;
+    }
+
+    @keyframes shimmer{
+      0% { transform: translateX(-2%); opacity: 0.55; }
+      50% { transform: translateX(2%); opacity: 0.85; }
+      100% { transform: translateX(-1%); opacity: 0.65; }
+    }
+
+    footer{
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+    }
+
+    .note{
+      margin: 0;
+      color: rgba(255,255,255,0.68);
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce){
+      .glow, .panel, .accent, .btn{ animation: none !important; transition: none !important; }
+    }
   </style>
 </head>
 
 <body>
+  <div class="glow"></div>
+
   <div class="wrap">
-    <header>
-      <div>
-        <h1>Ciara Wacker</h1>
-      </div>
-
-      <nav>
-        <a href="projects.html">Projects</a>
-        <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
-      </nav>
-    </header>
-
-    <section class="card">
-      <h2 style="margin:0 0 10px;">Featured</h2>
-
-      <div class="grid">
-        <div class="item">
-          <h3>Working Paper (SSRN)</h3>
-          <p>
-            <strong>When Beliefs Become Entrenched: Narrative Dominance and Mispricing in Equity Markets</strong><br />
-            Working Paper, January 2026.
-          </p>
-          <a class="pill" href="projects.html">View project page →</a>
-          <!-- Put the SSRN link on projects.html (cleaner). -->
+    <main class="panel">
+      <header>
+        <div>
+          <h1 class="name">Ciara Wacker</h1>
+          <p class="tagline">Research & quantitative projects.</p>
         </div>
 
-        <div class="item">
-          <h3>Monte Carlo Portfolio Project</h3>
-          <p>
-            Portfolio simulation & efficient frontier exploration.
-          </p>
-          <a class="pill" href="project1.html">Read write-up →</a>
+        <!-- Minimal nav: only Projects + Resume -->
+        <nav class="mini-nav">
+          <a href="projects.html">Projects</a>
+          <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <p class="lead">
+          Focused on asset pricing, behavioral finance, and data-driven work.
+          Selected projects and a current resume are linked below.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="projects.html">
+            View Projects
+            <span aria-hidden="true">→</span>
+          </a>
+
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener noreferrer">
+            Download Resume
+            <span aria-hidden="true">↗</span>
+          </a>
         </div>
-      </div>
+      </section>
 
-      <div style="margin-top: 14px;">
-        <a class="pill" href="projects.html">All projects →</a>
-        <a class="pill" href="resume.pdf" target="_blank" rel="noopener noreferrer">Download resume →</a>
-      </div>
-    </section>
+      <div class="accent"></div>
 
-    <footer>
-      © <span id="year"></span> Ciara Wacker
-    </footer>
+      <footer>
+        <p class="note">Working paper and Monte Carlo project are listed on the Projects page.</p>
+        <div>© <span id="year"></span> Ciara Wacker</div>
+      </footer>
+    </main>
   </div>
 
   <script>
@@ -110,6 +281,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
