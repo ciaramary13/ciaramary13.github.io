@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ciara Wacker</title>
 
-  <!-- Keep if you want; this page is self-styled, so style.css isn't required -->
-  <!-- <link rel="stylesheet" href="style.css" /> -->
-
   <style>
     :root{
       --bg: #0b0b14;
@@ -185,12 +182,6 @@
       box-shadow: 0 18px 55px rgba(255,79,216,0.18), 0 18px 55px rgba(79,214,255,0.14);
     }
 
-    .icon{
-      width: 18px;
-      height: 18px;
-      display: inline-block;
-    }
-
     /* Subtle “floating” accent line */
     .accent{
       margin-top: 22px;
@@ -241,9 +232,10 @@
           <p class="tagline">Research & quantitative projects.</p>
         </div>
 
-        <!-- Minimal nav: only Projects + Resume -->
         <nav class="mini-nav">
           <a href="projects.html">Projects</a>
+          <a href="publications.html">Publications</a>
+          <a href="https://scholar.google.com/citations?user=b8JQcOUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
           <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
         </nav>
       </header>
@@ -251,13 +243,23 @@
       <section class="hero">
         <p class="lead">
           Focused on asset pricing, behavioral finance, and data-driven work.
-          Selected projects and a current resume are linked below.
+          Selected projects, publications, and a current resume are linked below.
         </p>
 
         <div class="cta-row">
           <a class="btn btn-primary" href="projects.html">
             View Projects
             <span aria-hidden="true">→</span>
+          </a>
+
+          <a class="btn" href="publications.html">
+            View Publications
+            <span aria-hidden="true">→</span>
+          </a>
+
+          <a class="btn" href="https://scholar.google.com/citations?user=b8JQcOUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+            Google Scholar
+            <span aria-hidden="true">↗</span>
           </a>
 
           <a class="btn" href="resume.pdf" target="_blank" rel="noopener noreferrer">
@@ -270,7 +272,7 @@
       <div class="accent"></div>
 
       <footer>
-        <p class="note">Working paper and Monte Carlo project are listed on the Projects page.</p>
+        <p class="note">Working paper and Monte Carlo project are listed on the Projects page. Publications are linked above.</p>
         <div>© <span id="year"></span> Ciara Wacker</div>
       </footer>
     </main>
@@ -281,6 +283,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
