@@ -141,47 +141,6 @@
       max-width: 75ch;
     }
 
-    .cta-row{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 750;
-      letter-spacing: 0.01em;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.16);
-      color: var(--text);
-      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
-      will-change: transform;
-    }
-
-    .btn:hover{
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,0.30);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.28);
-      background: rgba(0,0,0,0.22);
-    }
-
-    .btn-primary{
-      border: none;
-      background: linear-gradient(90deg, rgba(255,79,216,0.95), rgba(79,214,255,0.95));
-      color: #070710;
-    }
-    .btn-primary:hover{
-      transform: translateY(-2px) scale(1.01);
-      box-shadow: 0 18px 55px rgba(255,79,216,0.18), 0 18px 55px rgba(79,214,255,0.14);
-    }
-
     /* Subtle “floating” accent line */
     .accent{
       margin-top: 22px;
@@ -216,7 +175,7 @@
 
     /* Reduced motion support */
     @media (prefers-reduced-motion: reduce){
-      .glow, .panel, .accent, .btn{ animation: none !important; transition: none !important; }
+      .glow, .panel, .accent{ animation: none !important; transition: none !important; }
     }
   </style>
 </head>
@@ -243,27 +202,14 @@
       <section class="hero">
         <p class="lead">
           Focused on asset pricing, behavioral finance, and data-driven work.
-          Selected projects and a current resume are linked below.
-          Publications are available via the Publications page and Google Scholar.
+          Projects, publications, and a current resume are linked above.
         </p>
-
-        <div class="cta-row">
-          <a class="btn btn-primary" href="projects.html">
-            View Projects
-            <span aria-hidden="true">→</span>
-          </a>
-
-          <a class="btn" href="resume.pdf" target="_blank" rel="noopener noreferrer">
-            Download Resume
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
       </section>
 
       <div class="accent"></div>
 
       <footer>
-        <p class="note">Publications are linked above; project writeups are on the Projects page.</p>
+        <p class="note">Project writeups are on the Projects page; publications are linked on Publications and Google Scholar.</p>
         <div>© <span id="year"></span> Ciara Wacker</div>
       </footer>
     </main>
@@ -274,6 +220,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
